@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+    <title>Detay Sayfası</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img src="{{urun.resim.url}}" width="100%" alt="">
+            </div>
+            <div class="col-8">
+                <h5>{{urun.isim}}</h5>
+                <p>Kategori : {{urun.kategori.isim}}</p>
+                <p>{{urun.aciklama}}</p>
+                <p>{{urun.fiyat}} TL</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
