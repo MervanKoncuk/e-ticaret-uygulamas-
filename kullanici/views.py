@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import *
 # Create your views here.
 def kayit(request):
     form = UserForm()
@@ -23,7 +24,7 @@ def giris(request):
         sifre = request.POST['sifre']
 
         user = authenticate(request, username = kullanici, password = sifre)    
-
+        
         if user is not None:
             login(request, user)
             messages.success(request, 'Giriş yapıldı')

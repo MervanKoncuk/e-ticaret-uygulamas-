@@ -41,3 +41,14 @@ class Urun(models.Model):
 # manytoone : foreignkey
 # manytomany
 # onetoone 
+
+class Sepet(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    urun = models.ForeignKey(Urun, on_delete=models.CASCADE)
+    adet = models.IntegerField()
+    toplamFiyat = models.IntegerField()
+    odendiMi = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.user.username
